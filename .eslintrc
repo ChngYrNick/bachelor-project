@@ -12,11 +12,11 @@
     "prettier"
   ],
   "rules": {
-    "no-console": 1,
+    "no-console": "off",
     "prettier/prettier": 2
   },
   "env": {
-    "browser": true,
+    "browser": false,
     "node": true,
     "jest/globals": true
   }
