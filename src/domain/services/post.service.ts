@@ -5,7 +5,7 @@ import { Member } from '../entities/member/member.entity';
 import { PostVote } from '../entities/post/post-vote.entity';
 import { Post } from '../entities/post/post.entity';
 
-export class PostService {
+export class BlogService {
 	public dislikeComment(
 		post: Post,
 		member: Member,
