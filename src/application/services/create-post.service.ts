@@ -6,7 +6,10 @@ import { PostRepoPort } from '../../domain/ports/data/post-repo.port';
 import { Result } from '../../shared/core/result.base';
 import { UniqueID } from '../../shared/unique-id.base';
 import { CreatePostDTO } from '../dtos/post/create-post.dto';
-import { CreatePostUseCase } from '../use-cases/post/create-post.use-case';
+import {
+  CreatePostResponse,
+  CreatePostUseCase,
+} from '../use-cases/post/create-post.use-case';
 
 export class CreatePostService implements CreatePostUseCase {
   constructor(
@@ -14,7 +17,7 @@ export class CreatePostService implements CreatePostUseCase {
     private readonly _memberRepo: MemberRepoPort,
   ) {}
 
-  async createPost(dto: CreatePostDTO) {
+  async createPost(dto: CreatePostDTO): Promise<CreatePostResponse> {
     const postProps = {} as PostProps;
 
     try {
