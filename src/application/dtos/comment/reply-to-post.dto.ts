@@ -1,5 +1,5 @@
 export interface ReplyToPostDTO {
   userId: string;
-	postId: string;
+  postId: string;
   text: string;
 }

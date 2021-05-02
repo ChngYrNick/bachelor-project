@@ -1,4 +1,4 @@
 export interface DislikeCommentDTO {
-	userId: string;
-	commentId: string;
+  userId: string;
+  commentId: string;
 }

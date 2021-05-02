@@ -1,3 +1,3 @@
 export interface GetMemberDTO {
-	memberId: string;
+  memberId: string;
 }

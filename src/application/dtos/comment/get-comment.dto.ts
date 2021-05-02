@@ -1,3 +1,3 @@
 export interface GetCommentDTO {
-	commentId: string;
+  commentId: string;
 }

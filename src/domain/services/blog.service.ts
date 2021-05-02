@@ -6,12 +6,12 @@ import { PostVote } from '../entities/post/post-vote.entity';
 import { Post } from '../entities/post/post.entity';
 
 export class BlogService {
-	public dislikeComment(
-		post: Post,
-		member: Member,
-		comment: Comment,
-		commentVotesByMember: CommentVote[],
-	) {
+  public dislikeComment(
+    post: Post,
+    member: Member,
+    comment: Comment,
+    commentVotesByMember: CommentVote[],
+  ) {
     const existingDislike: CommentVote | undefined = commentVotesByMember.find(
       (vote: CommentVote) => {
         return vote.isDislike();
@@ -22,7 +22,7 @@ export class BlogService {
     if (dislikeAlreadyExists) {
       comment.removeVote(existingDislike as CommentVote);
       post.updateComment(comment);
-			return Result.ok<void>();
+      return Result.ok<void>();
     }
 
     const existingLike: CommentVote | undefined = commentVotesByMember.find(
@@ -36,7 +36,7 @@ export class BlogService {
       comment.removeVote(existingLike as CommentVote);
       post.updateComment(comment);
     }
-		
+
     const dislikeOrError: Result<CommentVote> = CommentVote.create({
       commentId: comment.id,
       memberId: member.id,
@@ -51,7 +51,7 @@ export class BlogService {
     comment.addVote(dislike);
     post.updateComment(comment);
     return Result.ok<void>();
-	}
+  }
 
   public likeComment(
     post: Post,

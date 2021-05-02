@@ -1,4 +1,4 @@
 export interface DeleteCommentDTO {
   userId: string;
-	commentId: string;
+  commentId: string;
 }

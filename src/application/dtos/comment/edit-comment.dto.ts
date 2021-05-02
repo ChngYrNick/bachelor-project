@@ -1,5 +1,5 @@
 export interface EditCommentDTO {
   userId: string;
-	postId: string;
+  postId: string;
   text: string;
 }

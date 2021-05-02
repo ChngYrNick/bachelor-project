@@ -1,3 +1,3 @@
 export interface GetPostCommentsDTO {
-	postId: string;
+  postId: string;
 }

@@ -1,7 +1,7 @@
 export interface EditPostDTO {
   userId: string;
-	postId: string;
+  postId: string;
   title: string;
   text: string;
-	hashtags: Array<string>;
+  hashtags: Array<string>;
 }

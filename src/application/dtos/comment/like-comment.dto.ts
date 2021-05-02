@@ -1,4 +1,4 @@
 export interface LikeCommentDTO {
-	userId: string;
-	commentId: string;
+  userId: string;
+  commentId: string;
 }
