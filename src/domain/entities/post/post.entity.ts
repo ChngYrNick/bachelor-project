@@ -14,7 +14,7 @@ import { PostViewed } from '../../events/post-viewed.event';
 import { PostEdited } from '../../events/post-edited.event';
 import { PostVote } from './post-vote.entity';
 
-interface PostProps {
+export interface PostProps {
   postId?: UniqueID;
   memberId: UniqueID;
   postTitle: PostTitle;
