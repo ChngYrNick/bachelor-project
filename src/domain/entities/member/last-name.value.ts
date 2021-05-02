@@ -2,10 +2,6 @@ import { Result } from '../../../shared/core/result.base';
 import { Guard } from '../../../shared/core/guard.base';
 import { ValueObject } from '../../../shared/value-object.base';
 
-interface LastNameProps {
-  name: string;
-}
-
 export class LastName extends ValueObject {
   public static maxLength = 15;
   public static minLength = 2;
@@ -18,10 +14,10 @@ export class LastName extends ValueObject {
     return this._value;
   }
 
-  public static create(props: LastNameProps): Result<LastName> {
-    const usernameResult = Guard.againstNullOrUndefined(props.name, 'username');
-    const minLengthResult = Guard.againstAtLeast(this.minLength, props.name);
-    const maxLengthResult = Guard.againstAtMost(this.maxLength, props.name);
+  public static create(name: string): Result<LastName> {
+    const usernameResult = Guard.againstNullOrUndefined(name, 'username');
+    const minLengthResult = Guard.againstAtLeast(this.minLength, name);
+    const maxLengthResult = Guard.againstAtMost(this.maxLength, name);
 
     if (!usernameResult.succeeded) {
       return Result.fail<LastName>(new Error(usernameResult.message));
@@ -35,6 +31,6 @@ export class LastName extends ValueObject {
       return Result.fail<LastName>(new Error(maxLengthResult.message));
     }
 
-    return Result.ok<LastName>(new LastName(props.name));
+    return Result.ok<LastName>(new LastName(name));
   }
 }

@@ -3,10 +3,6 @@ import { Guard } from '../../../shared/core/guard.base';
 import { ValueObject } from '../../../shared/value-object.base';
 import { ValidEmailSpec } from '../../specifications/valid-email.spec';
 
-interface EmailProps {
-  email: string;
-}
-
 export class Email extends ValueObject {
   private constructor(private readonly _value: string) {
     super();
@@ -16,8 +12,8 @@ export class Email extends ValueObject {
     return this._value;
   }
 
-  public static create(props: EmailProps): Result<Email> {
-    const guardResult = Guard.againstNullOrUndefined(props.email, 'email');
+  public static create(value: string): Result<Email> {
+    const guardResult = Guard.againstNullOrUndefined(value, 'email');
 
     if (!guardResult.succeeded) {
       return Result.fail<Email>(new Error(guardResult.message));
@@ -25,7 +21,7 @@ export class Email extends ValueObject {
 
     const validEmailSpec = new ValidEmailSpec();
 
-    const email = new Email(props.email);
+    const email = new Email(value);
 
     if (!validEmailSpec.isSatisfiedBy(email)) {
       return Result.fail<Email>(new Error('Email is not valid'));

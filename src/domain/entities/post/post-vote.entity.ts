@@ -3,7 +3,7 @@ import { UniqueID } from '../../../shared/unique-id.base';
 import { Result } from '../../../shared/core/result.base';
 import { Guard } from '../../../shared/core/guard.base';
 
-type VoteType = 'DISLIKE' | 'LIKE';
+export type VoteType = 'DISLIKE' | 'LIKE';
 
 interface PostVoteProps {
   postId: UniqueID;
