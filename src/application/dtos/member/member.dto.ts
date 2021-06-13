@@ -3,5 +3,5 @@ export interface MemberDTO {
   firstName: string;
   lastName: string;
   email: string;
-  memberId: string;
+  id: number;
 }

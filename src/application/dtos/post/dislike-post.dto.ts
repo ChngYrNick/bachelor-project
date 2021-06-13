@@ -1,4 +1,4 @@
 export interface DislikePostDTO {
-  userId: string;
+  memberId: string;
   postId: string;
 }

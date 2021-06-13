@@ -21,8 +21,8 @@ export class CreatePostService implements CreatePostUseCase {
     const postProps = {} as PostProps;
 
     try {
-      const member = await this._memberRepo.getMemberByUserId(
-        UniqueID.create(dto.userId),
+      const member = await this._memberRepo.getMemberById(
+        UniqueID.create(dto.memberId),
       );
       postProps.memberId = member.id;
     } catch (error) {

@@ -26,7 +26,7 @@ export interface PostProps {
   dateModified?: Date;
 }
 
-interface PostEditProps {
+export interface EditPostProps {
   postTitle: PostTitle;
   postText: PostText;
   hashtags: Hashtags;
@@ -86,6 +86,11 @@ export class Post extends AggregateRoot {
     return Result.ok<void>();
   }
 
+  private postModified(): Result<void> {
+    this._dateModified = new Date();
+    return Result.ok<void>();
+  }
+
   get datePosted(): Date {
     return this._datePosted;
   }
@@ -115,7 +120,7 @@ export class Post extends AggregateRoot {
     return Result.ok<void>();
   }
 
-  public updateInfo(props: PostEditProps): Result<void> {
+  public updateInfo(props: EditPostProps): Result<void> {
     const propsResult = Guard.againstNullOrUndefinedBulk([
       { argument: props.postTitle, argumentName: 'postTitle' },
       { argument: props.postText, argumentName: 'postText' },
@@ -131,6 +136,8 @@ export class Post extends AggregateRoot {
     this.updateTitle(props.postTitle);
     this.updateText(props.postText);
     this.updateHashtags(props.hashtags);
+
+    this.postModified();
 
     this.addDomainEvent(new PostEdited(previousPostState, this));
 

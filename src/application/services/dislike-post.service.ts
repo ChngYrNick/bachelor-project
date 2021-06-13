@@ -20,8 +20,8 @@ export class DislikePostService implements DislikePostUseCase {
 
   async dislikePost(dto: DislikePostDTO): Promise<DislikePostResponse> {
     try {
-      const member = await this._memberRepo.getMemberByUserId(
-        UniqueID.create(dto.userId),
+      const member = await this._memberRepo.getMemberById(
+        UniqueID.create(dto.memberId),
       );
 
       const post = await this._postRepo.getPostById(

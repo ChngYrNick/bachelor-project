@@ -1,4 +1,4 @@
 export interface LikePostDTO {
-  userId: string;
+  memberId: string;
   postId: string;
 }

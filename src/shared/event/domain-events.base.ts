@@ -9,7 +9,7 @@ export class DomainEvents {
   private static _markedAggregates: AggregateRoot[] = [];
 
   public static register(
-    callback: (event: DomainEvent) => void,
+    callback: (event: DomainEvent) => Promise<void>,
     eventClassName: string,
   ): void {
     this._eventEmitter.on(eventClassName, callback);

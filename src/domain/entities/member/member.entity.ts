@@ -43,6 +43,10 @@ export class Member extends AggregateRoot {
     return this._lastName;
   }
 
+  get fullName(): string {
+    return `${this.firstName.value} ${this.lastName.value}`;
+  }
+
   static create(props: MemberProps): Result<Member> {
     const propsGuardResult = Guard.againstNullOrUndefinedBulk([
       { argument: props.username, argumentName: 'username' },

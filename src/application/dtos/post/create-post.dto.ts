@@ -1,6 +1,5 @@
 export interface CreatePostDTO {
-  userId: string;
+  memberId: string;
   title: string;
   text: string;
-  hashtags: Array<string>;
 }
